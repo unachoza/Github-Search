@@ -37,3 +37,13 @@ code {
   width: 75%;
   margin: auto;
 }
+.header {
+  width: 100vw;
+  height: 10vh;
+  background-color: #5285c1;
+}
+.logo {
+  width: 55px;
+  height: auto;
+  margin: 13px 20px;
+}

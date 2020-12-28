@@ -6,13 +6,17 @@ import 'Components/Search/Form/Form.styles.css';
 const Form = () => {
   return (
     <>
-      <form>
-        <FormInput />
-        <FormInput />
-        <FormInput />
-        <FormInput />
-        <button>Submit</button>
+      <form className="containerSearch">
+        <div id="left-col" className="column">
+          <FormInput />
+          <FormInput />
+        </div>
+        <div id="right-col" className="column">
+          <FormInput />
+          <FormInput />
+        </div>
       </form>
+      <input id="submit" type="submit" />
     </>
   );
 };

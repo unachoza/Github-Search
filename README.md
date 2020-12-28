@@ -7,7 +7,7 @@ The UI should consist of two elements:
 - a form for specifying search parameters
 - results from the latest search
 
-There are visual mocks for desktop and mobile versions of the UI in `assets.zip`. The UI should be responsive, and should match these mocks as closely as possible. The mocks reference an image which can also be found in `assets.zip`.
+The UI should be responsive, and match mocks as closely as possible.
 
 You can use any library or framework with the exception of Github SDKs or API clients (i.e., your code should construct HTTP requests directly). Your application should not include a server component.
 
@@ -64,3 +64,9 @@ Even Financial Mocks
 ![Mobile Form](https://res.cloudinary.com/dh41vh9dx/image/upload/c_scale,h_387/v1577992438/form_mobile.png)
 
 ![Mobile Results](https://res.cloudinary.com/dh41vh9dx/image/upload/c_scale,w_240/v1577992455/results_mobile.png)
+
+### Future Iterations
+
+Search by coding language
+Search by user
+Search by # of collaborators

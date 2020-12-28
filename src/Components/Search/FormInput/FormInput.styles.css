@@ -16,5 +16,6 @@ input {
   color: white;
   width: 30%;
   max-width: 200px;
+  min-width: 100px;
   margin-bottom: 20px;
 }

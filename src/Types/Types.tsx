@@ -1,15 +1,21 @@
-export interface inputParams {
-  inputQuery: string;
-  inputStars: string;
-  inputFork: boolean;
-  responseLoading: boolean;
-  inputLicense: string;
-}
-export interface ResultsProps {
+export interface UserInputs {
   query: string;
-  data?: RepoItem[] | any;
+  stars: string;
+  selectedLicense: string;
+  fork: boolean;
+  responseLoading: boolean;
 }
-export interface RepoItem {
+export interface ContainerState extends UserInputs {
+  isResponseLoaded: boolean;
+  repositories?: RepositoryDetails[];
+  invalidInput: boolean;
+  licenseList: string[];
+  icon: string;
+}
+export interface Repositories {
+  repositories?: RepositoryDetails[];
+}
+export interface RepositoryDetails {
   name: string;
   owner: { login: string };
   html_url: string;
@@ -17,18 +23,6 @@ export interface RepoItem {
   stargazers_count: number;
   license: { name: string };
   fork: boolean;
-}
-
-export interface containerState extends inputParams {
-  isResponseLoaded: boolean;
-  repositories?: repositoryItem[];
-  name: string;
-  owner: string;
-  html_url: string;
-  description: string;
-  invalidInput: boolean;
-  licenseList: string[];
-  icon: string;
 }
 
 export interface dropdownState {

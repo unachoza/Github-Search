@@ -2,6 +2,7 @@
 // import { RepoItem } from "Components/Results/ResultsList";
 
 // type Response = RepoItem[]
+import { inputParams } from 'Types/Types';
 
 export const fetchGithub = (
   text: string,

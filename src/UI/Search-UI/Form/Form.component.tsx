@@ -1,5 +1,4 @@
 import React, { Component, MouseEventHandler } from 'react';
-import { inputParams } from 'Types/Types';
 import { FormInput } from 'UI/Search-UI/FormInput/FormInput.component';
 import 'UI/Search-UI/Form/Form.styles.css';
 
@@ -13,18 +12,21 @@ export interface FormProps {
   className?: string | boolean | undefined;
   typeOfInput: string;
   placeholder?: string;
-  inputValue: string;
+  name: string;
+  inputValue?: string;
   error?: boolean;
-  inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void | MouseEventHandler<any>;
+  inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  // inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void | MouseEventHandler<any>;
 }
 class Form extends Component<FormProps> {
   constructor(props: any) {
     super(props);
     this.state = {
       typeOfInput: null,
-      placeholder: null,
+      placeholder: 'Text',
+      name: 'text',
       value: null,
-      label: null,
+      label: 'Text',
       className: null,
       error: false,
       inputValue: null,
@@ -32,11 +34,14 @@ class Form extends Component<FormProps> {
     };
   }
   render() {
-    const handleChange = (fieldName: keyof InputProps) => (
-      e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | any>
-    ) => {
-      this.setState({ ...this.state, [fieldName]: e.currentTarget.value });
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      console.log('happenign', e.target, this.state);
+      const { name, value } = e.target;
+      this.setState({ [name]: value });
     };
+    // const handleChange = (fieldName: keyof InputProps) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   this.setState({ ...this.state, [fieldName]: e.currentTarget.value });
+    // };
     return (
       <>
         <form className="containerSearch">
@@ -44,36 +49,36 @@ class Form extends Component<FormProps> {
             <FormInput
               label="Text"
               className="input"
-              typeOfInput="input"
+              typeOfInput="text"
               placeholder="Text"
-              inputValue="hold"
-              inputFunction={(input) => (e: any) => handleChange(e)}
+              name="text"
+              inputFunction={(e: any) => handleChange(e)}
             />
             <FormInput
               label="License"
               className="input"
-              typeOfInput="input"
-              placeholder="Text"
-              inputValue="hold"
-              inputFunction={(input) => (e: any) => handleChange(e)}
+              typeOfInput="text"
+              placeholder="Lisence"
+              name="license"
+              inputFunction={(e: any) => handleChange(e)}
             />
           </div>
           <div id="right-col" className="column">
             <FormInput
               label="Stars"
               className="input"
-              typeOfInput="input"
-              placeholder="Text"
-              inputValue="hold"
-              inputFunction={(input) => (e: any) => handleChange(e)}
+              typeOfInput="text"
+              placeholder="Stars"
+              name="stars"
+              inputFunction={(e: any) => handleChange(e)}
             />
             <FormInput
               label="Fork"
               className="input"
-              typeOfInput="input"
-              placeholder="Text"
-              inputValue="hold"
-              inputFunction={(input) => (e: any) => handleChange(e)}
+              typeOfInput="text"
+              placeholder="Fork"
+              name="fork"
+              inputFunction={(e: any) => handleChange(e)}
             />
           </div>
         </form>

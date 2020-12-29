@@ -7,7 +7,6 @@ export interface FormProps {
   typeOfInput: string;
   placeholder?: string;
   name: string;
-  inputValue?: string;
   error?: boolean;
   inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void;
   // inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void | MouseEventHandler<any>;
@@ -15,6 +14,7 @@ export interface FormProps {
 
 export const FormInput = (props: FormProps) => {
   const { typeOfInput, inputFunction, placeholder, className, label, name } = props;
+  console.log(props);
 
   return (
     <>

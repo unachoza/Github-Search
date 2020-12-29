@@ -7,30 +7,34 @@ type InputProps = {
   value: string;
 };
 
-export interface FormProps {
+interface FormProps {
   label: string;
   className?: string | boolean | undefined;
   typeOfInput: string;
   placeholder?: string;
   name: string;
-  inputValue?: string;
   error?: boolean;
   inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void;
   // inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void | MouseEventHandler<any>;
 }
+
+// formProperties: {
+//   className: null,
+//   typeOfInput: null,
+//   name: 'text',
+//   placeholder: 'Text',
+//   inputFunction: null,
+//   label: 'Text',
+//   error: false,
+// },
 class Form extends Component<FormProps> {
   constructor(props: any) {
     super(props);
     this.state = {
-      typeOfInput: null,
-      placeholder: 'Text',
-      name: 'text',
-      value: null,
-      label: 'Text',
-      className: null,
-      error: false,
-      inputValue: null,
-      inputFunction: null,
+      text: null,
+      license: null,
+      stars: null,
+      forked: null,
     };
   }
   render() {

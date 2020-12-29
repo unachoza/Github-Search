@@ -42,7 +42,7 @@ class Form extends Component<FormProps> {
         <form className="containerSearch">
           <div id="left-col" className="column">
             <FormInput
-              label="text"
+              label="Text"
               className="input"
               typeOfInput="input"
               placeholder="Text"
@@ -50,7 +50,7 @@ class Form extends Component<FormProps> {
               inputFunction={(input) => (e: any) => handleChange(e)}
             />
             <FormInput
-              label="text"
+              label="License"
               className="input"
               typeOfInput="input"
               placeholder="Text"
@@ -60,7 +60,7 @@ class Form extends Component<FormProps> {
           </div>
           <div id="right-col" className="column">
             <FormInput
-              label="text"
+              label="Stars"
               className="input"
               typeOfInput="input"
               placeholder="Text"
@@ -68,7 +68,7 @@ class Form extends Component<FormProps> {
               inputFunction={(input) => (e: any) => handleChange(e)}
             />
             <FormInput
-              label="text"
+              label="Fork"
               className="input"
               typeOfInput="input"
               placeholder="Text"

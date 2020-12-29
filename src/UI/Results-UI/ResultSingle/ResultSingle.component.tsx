@@ -1,6 +1,6 @@
 import React from 'react';
 // import { RepoItem } from './ResultsList';
-import 'Components/Results/ResultSingle/ResultSingle.styles.css';
+import 'UI/Results-UI/ResultSingle/ResultSingle.styles.css';
 
 // const ResultSingle = ({
 //   everything: { name, owner, html_url, description, stargazers_count, license, fork },

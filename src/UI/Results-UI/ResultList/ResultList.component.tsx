@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultSingle from 'Components/Results/ResultSingle/ResultSingle.component';
+import ResultSingle from 'UI/Results-UI/ResultSingle/ResultSingle.component';
 // import "./Results.css";
 // import "../../App.css";
 

@@ -13,6 +13,6 @@
 // export default FormInput;
 import React from 'react';
 
-const FormInput = ({ children, ...props }) => <input {...props}{children}/>;
+const FormInput = (...children) => <input {...children} />;
 
 export default FormInput;

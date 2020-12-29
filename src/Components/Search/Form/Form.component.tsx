@@ -22,3 +22,22 @@ const Form = () => {
 };
 
 export default Form;
+
+// handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+//   e.preventDefault();
+//   debugger;
+//   const { query, license, fork, stars, loading } = this.state;
+
+//   this.setState({ loading: true });
+//   fetchGithub(query, license, fork, stars, loading)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       this.setState({
+//         isResponseLoaded: true,
+//         data: data.items,
+//         loading: false,
+//       });
+//     });
+
+//   this.showResults();
+// };

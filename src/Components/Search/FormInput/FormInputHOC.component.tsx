@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from '../Form/Form.component';
 import FormInput from 'Components/Search/FormInput/FormInput.component';
+
 type InputProps = {
   name: string;
   value: string;

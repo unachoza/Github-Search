@@ -1,43 +1,58 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import 'Components/App/App.css';
 import Form from 'UI/Search-UI/Form/Form.component';
 import RepositoryList from 'UI/Results-UI/RepositoryList/RepositoryList.component';
-import { Mutable } from 'type-fest';
+import { fetchGithub } from 'API/apiFetch';
 
 interface UserInput {
   text: string;
   license: string;
   stars: string;
-  forked: string;
-  inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  forked: boolean;
+  loading: boolean;
+  repositories?: any[];
+  inputFunction?: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleSubmit?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
-type InputProps = {
-  name: string;
-  value: string;
-  // MouseEventHandler
-};
+
 class MainPage extends Component<{}, UserInput> {
   state = {
     text: '',
     license: '',
     stars: '',
-    forked: '',
+    forked: false,
+    loading: false,
+    repositories: [],
   };
   render() {
-    // const handleChange = (e) => {
-    //   const { name, vale } = e.target;
-    //   this.setState({[name]: value})
-    // }
     const inputFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
       // @ts-ignore
       this.setState({ [name]: value });
     };
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      console.log('cliced');
+      e.preventDefault();
+      const { text, license, forked, stars, loading } = this.state;
+      this.setState({ loading: true });
+      fetchGithub(text, license, forked, stars, loading)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          this.setState({
+            repositories: data.items,
+            loading: false,
+          });
+          //handling error here .catch(err => console.log(err))
+        });
+
+      // this.showResults();
+    };
     return (
       <>
         <h1 className="title">Github Repository Search</h1>
         <div className="App search-container">
-          <Form inputFunction={inputFunction} {...this.state} />
+          <Form inputFunction={inputFunction} handleSubmit={handleSubmit} {...this.state} />
           <div>
             <hr className="division-line" />
             <p className="results-below-text default-text">

@@ -1,29 +1,20 @@
-import React, { Component, MouseEventHandler } from 'react';
+import React from 'react';
 import { FormInput } from 'UI/Search-UI/FormInput/FormInput.component';
 import 'UI/Search-UI/Form/Form.styles.css';
-import { Mutable } from 'type-fest';
-
-interface FormProps {
-  label?: string;
-  className?: string | boolean | undefined;
-  typeOfInput?: string;
-  placeholder?: string;
-  name?: string;
-  error?: boolean;
-}
 
 interface UserInput {
   text: string;
   license: string;
   stars: string;
-  forked: string;
-  inputFunction: (event: React.FocusEvent<HTMLInputElement>) => void;
+  forked: boolean;
+  handleSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
+  inputFunction?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
-const Form = (props: UserInput | Mutable<UserInput>): JSX.Element => {
+const Form = (props: UserInput): JSX.Element => {
   return (
     <>
-      <form className="containerSearch">
+      <form className="containerSearch" onSubmit={props.handleSubmit}>
         <div id="left-col" className="column">
           <FormInput
             label="Text"
@@ -64,8 +55,8 @@ const Form = (props: UserInput | Mutable<UserInput>): JSX.Element => {
             {...props}
           />
         </div>
+        <input id="submit" type="submit" />
       </form>
-      <input id="submit" type="submit" />
     </>
   );
 };

@@ -8,13 +8,12 @@ export interface FormProps {
   placeholder?: string;
   name: string;
   error?: boolean;
-  inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  inputFunction?: (e: React.FocusEvent<HTMLInputElement>) => void;
   // inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void | MouseEventHandler<any>;
 }
 
 export const FormInput = (props: FormProps) => {
   const { typeOfInput, inputFunction, placeholder, className, label, name } = props;
-  console.log(props);
   return (
     <>
       <div className="default-text left">{label}</div>

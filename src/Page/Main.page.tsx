@@ -1,39 +1,59 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import 'Components/App/App.css';
 import Form from 'UI/Search-UI/Form/Form.component';
-import ResultList from 'UI/Results-UI/ResultList/ResultList.component';
-import { RepoItem, inputParams } from 'Types/Types';
+import RepositoryList from 'UI/Results-UI/RepositoryList/RepositoryList.component';
+import { Mutable } from 'type-fest';
 
-export interface State extends inputParams {
-  isLoaded: boolean;
-  data?: RepoItem[];
-  name: string;
-  owner: string;
-  html_url: string;
-  description: string;
-  invalidInput: boolean;
-  licenseList: [];
-  icon: string;
+interface UserInput {
+  text: string;
+  license: string;
+  stars: string;
+  forked: string;
+  inputFunction?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
-
-class MainPage extends Component {
-  state: any = {};
+type InputProps = {
+  name: string;
+  value: string;
+  // MouseEventHandler
+};
+class MainPage extends Component<{}, UserInput> {
+  state = {
+    text: '',
+    license: '',
+    stars: '',
+    forked: '',
+  };
   render() {
+    // const handleChange = (e) => {
+    //   const { name, vale } = e.target;
+    //   this.setState({[name]: value})
+    // }
+    const inputFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      // @ts-ignore
+      this.setState({ [name]: value });
+    };
     return (
       <>
         <h1 className="title">Github Repository Search</h1>
         <div className="App search-container">
-          <Form {...this.state} />
+          <Form inputFunction={inputFunction} {...this.state} />
           <div>
             <hr className="division-line" />
             <p className="results-below-text default-text">
               Please enter query and click SEARCH button above, results appear here
             </p>
           </div>
-          <ResultList />
+          <RepositoryList />
         </div>
       </>
     );
   }
 }
 export default MainPage;
+
+//// For extensible input function ///  setSTATE
+// var o:{} = {}
+// should be equivalent to
+
+// var o:{[key:string]:any} = {}

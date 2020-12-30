@@ -15,7 +15,6 @@ export interface FormProps {
 export const FormInput = (props: FormProps) => {
   const { typeOfInput, inputFunction, placeholder, className, label, name } = props;
   console.log(props);
-
   return (
     <>
       <div className="default-text left">{label}</div>

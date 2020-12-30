@@ -1,8 +1,8 @@
 import React from 'react';
 // import { RepoItem } from './ResultsList';
-import 'UI/Results-UI/ResultSingle/ResultSingle.styles.css';
+import 'UI/Results-UI/RepositorySingle/RepositorySingle.styles.css';
 
-// const ResultSingle = ({
+// const RepositorySingle = ({
 //   everything: { name, owner, html_url, description, stargazers_count, license, fork },
 // }: {
 //   everything: RepoItem;
@@ -13,7 +13,7 @@ import 'UI/Results-UI/ResultSingle/ResultSingle.styles.css';
 //         forked
 //       </div>
 //     );
-const ResultSingle = () => {
+const RepositorySingle = () => {
   return (
     <div className="result-container">
       <div className="results-sub-container" id="text">
@@ -34,4 +34,4 @@ const ResultSingle = () => {
     </div>
   );
 };
-export default ResultSingle;
+export default RepositorySingle;
